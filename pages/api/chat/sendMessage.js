@@ -4,14 +4,14 @@ export const config = {
     runtime: "edge"
 }
 
-export const handler = async (req) => {
+export default async function handler(req) {
     try {
         const { message } = await req.json();
         const stream = await OpenAIEdgeStream(
             "https://api.openai.com/v1/chat/completions", {
             headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${process.env.OPENAI_API_KEY}`
+                'content-type': 'application/json',
+                Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
             },
             method: 'POST',
             body: JSON.stringify({
