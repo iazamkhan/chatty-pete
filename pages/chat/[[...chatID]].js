@@ -52,8 +52,8 @@ export default function ChatPage() {
       </Head>
       <div className="grid h-screen grid-cols-[260px_1fr]">
         <ChatSidebar />
-        <div className="bg-gray-700 flex flex-col">
-          <div className="flex-1 text-white">{newChatMessages.map(message => <Message key={message._id} role={message.role} content={message.content} />)}{incomingMessage && <Message role="assistant" content={incomingMessage} />}</div>
+        <div className="bg-gray-700 flex flex-col overflow-hidden">
+          <div className="flex-1 text-white overflow-scroll">{newChatMessages.map(message => <Message key={message._id} role={message.role} content={message.content} />)}{incomingMessage && <Message role="assistant" content={incomingMessage} />}</div>
           <footer className="bg-gray-800 p-10">
             <form onSubmit={handleSubmit}>
               <fieldset className="flex gap-2" disabled={generatingResponse}>
