@@ -2,6 +2,7 @@ import { useUser } from "@auth0/nextjs-auth0/client"
 import { faRobot } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
+import ReactMarkdown from "react-markdown";
 
 function Message({ role, content }) {
 
@@ -24,7 +25,7 @@ function Message({ role, content }) {
                     <FontAwesomeIcon icon={faRobot} className="text-emerald-200" />
                 </div>)}
                 </div>
-            <div>{content}</div>
+            <div className="prose prose-invert"><ReactMarkdown>{content}</ReactMarkdown></div>
         </div>
     )
 }
